@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+    <meta charset='utf-8'>
+    <meta http-equiv='X-UA-Compatible' content='chrome=1'>
+    <meta name='viewport' content='width=device-width, initial-scale=1'>
+    <meta name='mobile-web-app-capable' content='yes'>
+    <meta name='apple-mobile-web-app-capable' content='yes'>
+    <meta name='twitter:card' content='summary'>
+    <meta name='twitter:title' content='Entrar - Plataforma WebXR'>
+    <meta name='twitter:description' content='Realidade Aumentada para e-commerce'>
+    <link rel='icon' type='image/png' sizes='32x32' href='assets/img/favicon-32x32.png'>
+    <link rel='icon' type='image/png' sizes='96x96' href='assets/img/favicon-96x96.png'>
+    <link href="css/styles.css" rel="stylesheet" />
+    <link href="css/custom-premium.css" rel="stylesheet" />
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/js/all.min.js"
+        crossorigin="anonymous"></script>
+
+    <title>Entrar - Plataforma</title>
+</head>
+
+<body class="bg-primary">
+    <div id="layoutAuthentication">
+        <div id="layoutAuthentication_content">
+            <main>
+                <div class="container">
+                    <div class="row justify-content-center">
+                        <div class="col-lg-5">
+                            <div class="
+                                        card
+                                        shadow-lg
+                                        border-0
+                                        rounded-lg
+                                        mt-5
+                                    ">
+                                <div class="card-header">
+                                    <h3 class="
+                                                text-center
+                                                font-weight-light
+                                                my-4
+                                            ">
+                                        Entrar
+                                    </h3>
+                                </div>
+                                <div class="card-body">
+                                    <form id="forms">
+                                        <div class="form-floating mb-3">
+                                            <input class="form-control" id="inputEmail" type="email"
+                                                placeholder="name@example.com" />
+                                            <label for="inputEmail">E-mail</label>
+                                        </div>
+                                        <div class="form-floating mb-3">
+                                            <input class="form-control" id="inputPassword" type="password"
+                                                placeholder="Password" />
+                                            <label for="inputPassword">Senha</label>
+                                        </div>
+
+                                        <div class="mt-4 mb-0">
+                                            <div class="d-grid">
+                                                <button type="submit" class="
+                                                            btn
+                                                            btn-primary
+                                                            btn-block
+                                                        ">
+                                                    Entrar
+                                                </button>
+                                            </div>
+                                        </div>
+                                    </form>
+                                </div>
+                                <div class="card-footer text-center py-3">
+                                    <div class="small">
+                                        <a href="register.html">Não tem conta? Cadastre-se!</a>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </main>
+        </div>
+        <div id="layoutAuthentication_footer">
+            <footer class="py-4 bg-light mt-auto">
+                <div class="container-fluid px-4">
+                    <div class="
+                                d-flex
+                                align-items-center
+                                justify-content-between
+                                small
+                            ">
+                        <div class="text-muted">
+                            Copyright &copy; Plataforma 2026
+                        </div>
+                        <!-- <div>
+                            <a href="privacy-policy.html">Política de privacidade</a>
+                            &middot;
+                            <a href="terms-of-use.html">Termos de uso</a>
+                        </div> -->
+                    </div>
+                </div>
+            </footer>
+        </div>
+    </div>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"
+        crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+    <script src="js/scripts.js"></script>
+    <script type="module">
+        import { LoginService } from "./services/login-service.js?v=2";
+        let loginService = new LoginService();
+        let form = document.getElementById("forms");
+        form.addEventListener("submit", (event) => {
+            event.preventDefault();
+            let data = {
+                email: event.target[0].value,
+                password: event.target[1].value,
+            };
+            loginService.login(data);
+        });
+    </script>
+</body>
+
+</html>
